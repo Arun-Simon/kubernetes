@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: newone
+  labels:
+    app: demoust
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ustimage
+  template:
+    metadata:
+      labels:
+        app: ustimage
+    spec:
+      containers:
+        - name: ustimage
+          image: rajcosivadevops/ustimage:latest
+          ports:
+            - containerPort: 80
