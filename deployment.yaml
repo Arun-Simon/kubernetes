@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oldone
+  labels:
+    app: ustimage
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ustimage
+  template:
+    metadata:
+      name: ustdemo
+      labels:
+        app: ustimage
+    spec:
+      containers:
+        - name: ustimage
+          image: rajcosivadevops/ustimage:latest
+          ports:
+            - containerPort: 80
